@@ -35,9 +35,7 @@ const navigate_path = useNavigate();
                             
                         </div>
                         <div>
-                            <button 
-                            onClick={()=>navigate_path('/home')}
-                            className="text-white w-full py-3 px-4 border-none bg-primary rounded-30px font-bold uppercase flex items-center justify-center gap-2"
+                            <button className="text-white w-full py-3 px-4 border-none bg-primary rounded-30px font-bold uppercase flex items-center justify-center gap-2"
                             >Submit <span className="inline-flex text-3xl"><HiArrowLongRight /></span></button>
                             <p className="text-xs font-medium sm:font-normal sm:text-base text-center mt-2">Have an Account? <span className="cursor-pointer text-primary" onClick={()=>navigate_path('/')}>Log in</span></p>
                             <p className="flex items-center gap-5 text-xl justify-center uppercase my-5">

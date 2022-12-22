@@ -49,9 +49,9 @@ export default function Header(props){
                     </div> */}
                 </div>
                 {/* profile part  */}
-                <div ref={ref} className="flex items-center gap-1 sm:gap-3 px-2 sm:px-5 bg-black relative">
+                <div ref={ref} className="flex items-center gap-1 sm:gap-3 px-2 sm:px-5 bg-primary relative">
                     <span onClick={()=>setProfileSetting(!profileSetting)} className="capitalize h-full cursor-default text-white font-medium flex items-center text-xs sm:text-base">Sunil G <span className="text-2xl"><MdOutlineKeyboardArrowDown /></span></span>
-                    <img src="images/admin.jpg" className="block w-8 h-8 sm:w-11 sm:h-11 rounded-full sm:p-1 sm:border-2 sm:border-tertiary" />
+                    <img src="images/admin.jpg" className="block w-8 h-8 sm:w-11 sm:h-11 rounded-full" />
                     {/* profile popup  */}
                     <ul className={profileSetting ? 'absolute mt-2 top-full left-auto right-3 w-full bg-white shadow-md border border-solid border-black/10 block' : 'absolute mt-2 top-full left-auto right-0 w-full bg-white shadow-md border border-solid border-black/10 hidden'}>
                         <li className="font-medium flex text-sm px-3 py-1 my-2 items-center gap-2 cursor-pointer"><span><BiUser /></span> Profile</li>
