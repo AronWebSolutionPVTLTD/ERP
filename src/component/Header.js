@@ -57,7 +57,7 @@ export default function Header(props){
                         <li className="font-medium flex text-sm px-3 py-1 my-2 items-center gap-2 cursor-pointer"><span><BiUser /></span> Profile</li>
                         <li className="font-medium flex text-sm px-3 py-1 my-2 items-center gap-2 cursor-pointer"><span><FiSettings /></span> Account Settings</li>
                         <li className="font-medium flex text-red-500 text-sm px-3 py-1 my-2 items-center gap-2 pt-3 border-t-2 border-solid border-black/10 cursor-pointer" 
-                        onClick={()=>navigate_path('/')}
+                        onClick={()=>{localStorage.removeItem("authData");localStorage.removeItem("token");navigate_path('/')}}
                         ><span><ImSwitch /></span> Logout</li>
                     </ul>
                 </div>  

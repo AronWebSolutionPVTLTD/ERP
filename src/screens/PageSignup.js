@@ -1,39 +1,13 @@
-
-import React, { useState, useEffect } from "react";
+import React from "react";
 import {HiArrowLongRight} from 'react-icons/hi2'
 import { GoogleLogin } from 'react-google-login';
 import { useNavigate } from "react-router-dom";
-import {
-      loginRequest
-    } from "../store/actions";
-import { connect } from "react-redux";
-    
 
-function PageLogin(props){
-    const [email, setEmail] = useState("")
-    const [error, setError] = useState("")
-    const [password, setPassword] = useState("")
-    const responseGoogle = (response) => {
-        console.log(response);
-    }
-    const loginCallBack = (response) => {
-        setEmail("")
-        setError("")
-        setPassword("")
-        navigate_path('/home')
-    }
-    const loginRequest = (e) => {
-        e.preventDefault()
-        console.log(email);
-        if(!email || !password){
-            setError("Emal And Password Is required!")
-            return
-        }
-        props.loginRequest({email: email, password: password},loginCallBack)
-    }
-    useEffect(()=>{
-        if(props.error)setError(props.error)
-    },[props.error])
+
+export default function PageSignup(){
+const responseGoogle = (response) => {
+    console.log(response);
+}
 const navigate_path = useNavigate();
     return(
         <div className="h-screen relative flex items-center flex-wrap">
@@ -47,25 +21,25 @@ const navigate_path = useNavigate();
             <div className="flex h-full justify-center items-center w-full md:w-[calc(100%-384px)] px-5 absolute top-0 md:static z-1">
                 <div className="w-full max-w-3xl p-5 md:p-8 shadow-ctm_shadow rounded-20px bg-white">
                     <form>
-                        {error && (
-                            <p style={{"color":"red"}} >{error}</p>
-                        )}
+                        <div className="mb-5">
+                            <label className="block text-xl mb-2 font-medium text-black/40">Username</label>
+                            <input type="text" name="username" placeholder="Enter username" className="outline-none block w-full p-2 rounded-md border border-solid border-black/10"  required />
+                        </div>
                         <div className="mb-5">
                             <label className="block text-xl mb-2 font-medium text-black/40">Email</label>
-                            <input type="email" value = {email} name="email" onChange={(e) =>{setError(""); setEmail(e.target.value)} } placeholder="Enter your email" className="outline-none block w-full p-2 rounded-md border border-solid border-black/10"  required />
+                            <input type="email" name="email" placeholder="Enter your email" className="outline-none block w-full p-2 rounded-md border border-solid border-black/10"  required />
                         </div>
                         <div className="mb-5">
                             <label className="block text-xl mb-2 font-medium text-black/40">Password</label>
-                            <input type="password" value = {password} onChange={(e) =>{setError(""); setPassword(e.target.value) }} name="password" placeholder="Enter your password" className="outline-none block w-full p-2 rounded-md border border-solid border-black/10"  required />
-                            <p className="text-right"><span className="cursor-pointer inline-block mt-1 font-medium">Forgot Password ?</span></p>
+                            <input type="password" name="password" placeholder="Enter your password" className="outline-none block w-full p-2 rounded-md border border-solid border-black/10"  required />
+                            
                         </div>
                         <div>
                             <button 
-                            onClick={(e)=>loginRequest(e)}
+                            onClick={()=>navigate_path('/home')}
                             className="text-white w-full py-3 px-4 border-none bg-primary rounded-30px font-bold uppercase flex items-center justify-center gap-2"
-                            >Log in <span className="inline-flex text-3xl"><HiArrowLongRight /></span></button>
-
-                            <p className="text-xs font-medium sm:font-normal sm:text-base text-center mt-2">Don't have Account? <span className="cursor-pointer text-primary" onClick={()=>navigate_path('/signup')}>Register Now</span></p>
+                            >Submit <span className="inline-flex text-3xl"><HiArrowLongRight /></span></button>
+                            <p className="text-xs font-medium sm:font-normal sm:text-base text-center mt-2">Have an Account? <span className="cursor-pointer text-primary" onClick={()=>navigate_path('/')}>Log in</span></p>
                             <p className="flex items-center gap-5 text-xl justify-center uppercase my-5">
                                 <span className="w-1/4 h-px bg-black/20"></span>
                                 <span>or</span>
@@ -86,12 +60,3 @@ const navigate_path = useNavigate();
         </div>
     )
 }
-const mapStateToProps = ({ Home }) => ({
-    login: Home.login,
-    error: Home.error,
-  });
-  
-  const mapDispatchToProps = (dispatch) => ({
-    loginRequest: (data,callback) => dispatch(loginRequest(data,callback)),
-  });
-  export default connect(mapStateToProps, mapDispatchToProps)((PageLogin));

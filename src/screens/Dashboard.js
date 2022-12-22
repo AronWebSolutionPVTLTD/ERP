@@ -1,10 +1,15 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import {TfiBriefcase} from 'react-icons/tfi'
 import {BsArrowUp} from 'react-icons/bs'
 import {SiWebmoney} from 'react-icons/si'
 import { Chart } from "react-google-charts";
-export default function Dashboard(){
+import { connect } from "react-redux";
+import {
+//   loginRequest
+} from "../store/actions";
+
+
+function Dashboard(props){
     const data2 = [
         ['Weeks', 'Loss', 'Profit'],
         ['Week-1', 10, 20],
@@ -81,3 +86,14 @@ export default function Dashboard(){
         </div>
     )
 }
+
+
+const mapStateToProps = ({ Home }) => ({
+    login: Home.login,
+    error: Home.error,
+  });
+  
+  const mapDispatchToProps = (dispatch) => ({
+    // notificationLists: () => dispatch(notificationLists()),
+  });
+  export default connect(mapStateToProps, mapDispatchToProps)((Dashboard));
