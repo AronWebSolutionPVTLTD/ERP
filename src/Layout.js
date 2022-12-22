@@ -19,7 +19,7 @@ export default function Layout(){
             </div>
             <div className='app_content'>
                 <Header sidebarExp={sidebarExp} setSidebarExp={setSidebarExp} />
-                <div className="px-5 md:px-10">
+                <div className="px-5 md:px-10 pb-5 md:pb-10">
                     <Outlet />
                 </div>
             </div>

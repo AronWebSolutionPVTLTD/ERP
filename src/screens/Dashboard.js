@@ -145,7 +145,7 @@ export default function Dashboard(){
             </div>
 
             <div className='my-10'>
-                <div className='w-full bg-white rounded-2xl shadow-md p-5 md:p-10'>
+                <div className='w-full bg-white rounded-2xl p-5 md:p-10'>
                     <p className='capitalize font-semibold text-3xl mb-10'>List of Projects</p>
                     <div>
                         <Paper sx={{ width: '100%' }} className="!shadow-none border border-solid border-black/10"> 
@@ -199,7 +199,11 @@ export default function Dashboard(){
                         </Paper>
                     </div>
                 </div>
-                
+            </div>
+            <div className='my-10'>
+                <div className='p-5 md:p-10 shadow-md rounded-2xl bg-white'>
+                    <p className='capitalize font-semibold text-3xl mb-10'>Teams</p>
+                </div>
             </div>
         </div>
     )
