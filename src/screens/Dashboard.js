@@ -1,5 +1,4 @@
 import React from 'react'
-import { useNavigate } from 'react-router-dom'
 import {TfiBriefcase} from 'react-icons/tfi'
 import {BsArrowUp} from 'react-icons/bs'
 import {SiWebmoney} from 'react-icons/si'

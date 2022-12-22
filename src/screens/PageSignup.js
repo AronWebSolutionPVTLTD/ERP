@@ -4,7 +4,7 @@ import { GoogleLogin } from 'react-google-login';
 import { useNavigate } from "react-router-dom";
 
 
-export default function PageLogin(){
+export default function PageSignup(){
 const responseGoogle = (response) => {
     console.log(response);
 }
@@ -22,20 +22,24 @@ const navigate_path = useNavigate();
                 <div className="w-full max-w-3xl p-5 md:p-8 shadow-ctm_shadow rounded-20px bg-white">
                     <form>
                         <div className="mb-5">
+                            <label className="block text-xl mb-2 font-medium text-black/40">Username</label>
+                            <input type="text" name="username" placeholder="Enter username" className="outline-none block w-full p-2 rounded-md border border-solid border-black/10"  required />
+                        </div>
+                        <div className="mb-5">
                             <label className="block text-xl mb-2 font-medium text-black/40">Email</label>
                             <input type="email" name="email" placeholder="Enter your email" className="outline-none block w-full p-2 rounded-md border border-solid border-black/10"  required />
                         </div>
                         <div className="mb-5">
                             <label className="block text-xl mb-2 font-medium text-black/40">Password</label>
                             <input type="password" name="password" placeholder="Enter your password" className="outline-none block w-full p-2 rounded-md border border-solid border-black/10"  required />
-                            <p className="text-right"><span className="cursor-pointer inline-block mt-1 font-medium">Forgot Password ?</span></p>
+                            
                         </div>
                         <div>
                             <button 
                             onClick={()=>navigate_path('/home')}
                             className="text-white w-full py-3 px-4 border-none bg-primary rounded-30px font-bold uppercase flex items-center justify-center gap-2"
-                            >Log in <span className="inline-flex text-3xl"><HiArrowLongRight /></span></button>
-                            <p className="text-xs font-medium sm:font-normal sm:text-base text-center mt-2">Don't have Account? <span className="cursor-pointer text-primary" onClick={()=>navigate_path('/signup')}>Register Now</span></p>
+                            >Submit <span className="inline-flex text-3xl"><HiArrowLongRight /></span></button>
+                            <p className="text-xs font-medium sm:font-normal sm:text-base text-center mt-2">Have an Account? <span className="cursor-pointer text-primary" onClick={()=>navigate_path('/')}>Log in</span></p>
                             <p className="flex items-center gap-5 text-xl justify-center uppercase my-5">
                                 <span className="w-1/4 h-px bg-black/20"></span>
                                 <span>or</span>
